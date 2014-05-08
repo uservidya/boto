@@ -3,5 +3,10 @@ python:
    - "2.7"
 before_install:
   - sudo apt-get install swig
-install: pip install --allow-all-external -r requirements.txt
-script: python tests/test.py unit
+before_script: mkdir -p shippable/codecoverage shippable/testresults
+install:
+  - pip install --allow-all-external -r requirements.txt
+  - pip install nose-cov
+script: 
+  - python tests/test.py unit
+  - nosetests --cov-report xml -o shippable/codecoverage/coverage.xml tests/*/*/*.py
