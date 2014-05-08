@@ -8,5 +8,5 @@ install:
   - pip install --allow-all-external -r requirements.txt
   - pip install nose-cov
 script: 
-  - python tests/test.py unit
-  - nosetests --cov-report xml -o shippable/codecoverage/coverage.xml tests/*/*/*.py
+  - python tests/test.py 
+  - nosetests --cov-report xml -o shippable/codecoverage/coverage.xml tests/*.py
