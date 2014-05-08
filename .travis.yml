@@ -12,6 +12,7 @@ install:
  # - nosetests --cov-report xml -o shippable/codecoverage/coverage.xml tests/*.py
   #- nosetests --with-coverage --cover-erase --cover-package= ./tests/*/*.py --cover-xml
 script:
-  - nosetests tests/*.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
-  - coverage run --branch tests/*.py
-  - coverage xml -o shippable/codecoverage/coverage.xml tests/*.py
+  - python tests/test.py 
+#  - nosetests tests/*.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
+  - coverage run --branch tests/test.py
+  - coverage xml -o shippable/codecoverage/coverage.xml tests/test.py
