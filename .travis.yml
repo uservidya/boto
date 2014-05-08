@@ -13,5 +13,5 @@ install:
   #- nosetests --with-coverage --cover-erase --cover-package= ./tests/*/*.py --cover-xml
 script:
   - nosetests tests/integration/gs/*.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
-  - coverage run --branch python/sample.py
+  - coverage run --branch tests/integration/gs/*.py
   - coverage xml -o shippable/codecoverage/coverage.xml tests/integration/gs/*.py
