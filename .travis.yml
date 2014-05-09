@@ -1,17 +1,18 @@
 language: python
 python:
   - "2.7"
+
 before_install:
   - sudo apt-get install swig
 install: 
   - pip install --allow-all-external -r requirements.txt
   - sudo pip install coverage
+before_script:
+  -  mkdir -p shippable/codecoverage shippable/testresults
 
 script: 
   - nosetests tests/*/*/*.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
   - coverage run tests/*/*/*.py #tests/integration/gs/*.py
   - coverage xml -o shippable/codecoverage/coverage.xml tests/*/*/*.py # tests/integration/gs/*.py
  #python --cov-report xml --cov tests/test.py unit --junit-xml=shippable/testresults/results.xml
-before_script:
-  -  mkdir -p shippable/codecoverage shippable/testresults
 
