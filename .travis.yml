@@ -9,7 +9,7 @@ install:
 
 script: 
   - nosetests tests/unit/*/*.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
-  - coverage run  tests/unit/*/*.py #tests/integration/gs/*.py
+  - coverage run tests/unit/*/*.py #tests/integration/gs/*.py
   - coverage xml -o shippable/codecoverage/coverage.xml tests/unit/*/*.py # tests/integration/gs/*.py
  #python --cov-report xml --cov tests/test.py unit --junit-xml=shippable/testresults/results.xml
 before_script:
