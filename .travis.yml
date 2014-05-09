@@ -1,18 +1,15 @@
 language: python
 python:
-   - "2.7"
+  - "2.7"
 before_install:
   - sudo apt-get install swig
-before_script: mkdir -p shippable/codecoverage shippable/testresults
-install:
+install: 
   - pip install --allow-all-external -r requirements.txt
-  - pip install nose-cov
-#script: 
- # - python tests/test.py 
- # - nosetests --cov-report xml -o shippable/codecoverage/coverage.xml tests/*.py
-  #- nosetests --with-coverage --cover-erase --cover-package= ./tests/*/*.py --cover-xml
-script:
-  - python tests/test.py 
-#  - nosetests tests/*.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
-  - coverage run --branch tests/test.py
-  - coverage xml -o shippable/codecoverage/coverage.xml tests/test.py
+  - sudo pip install coverage
+before_script:
+  -  mkdir -p shippable/codecoverage shippable/testresults
+script: 
+  - nosetests tests/unit/*/*.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
+  - coverage run tests/unit/*/*.py #tests/integration/gs/*.py
+  - coverage xml -o shippable/codecoverage/coverage.xml tests/unit/*/*.py # tests/integration/gs/*.py
+ #python --cov-report xml --cov tests/test.py unit --junit-xml=shippable/testresults/results.xml
