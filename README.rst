@@ -3,6 +3,9 @@ boto
 ####
 boto 2.27.0
 
+
+[![Build Status](https://apibeta.shippable.com/projects/536c85965a3fae9800f899f0/badge/develop)](https://beta.shippable.com/projects/536c85965a3fae9800f899f0/builds/history/projects/536c85965a3fae9800f899f0)
+
 Released: 6-March-2014
 
 .. image:: https://travis-ci.org/boto/boto.png?branch=develop
