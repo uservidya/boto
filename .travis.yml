@@ -2,7 +2,6 @@ language: python
 python:
   - "2.7"
 
-
 before_install:
   - sudo apt-get install swig
 install: 
@@ -21,6 +20,6 @@ notifications:
      email:
          recipients:
              - vidyac.raghav@gmail.com
-             - exampletwo@org.com
+             
          on_success: change
          on_failure: always
