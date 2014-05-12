@@ -2,6 +2,7 @@ language: python
 python:
   - "2.7"
 
+
 before_install:
   - sudo apt-get install swig
 install: 
@@ -16,3 +17,10 @@ script:
   - coverage xml -o shippable/codecoverage/coverage.xml tests/*/*/*.py # tests/integration/gs/*.py
  #python --cov-report xml --cov tests/test.py unit --junit-xml=shippable/testresults/results.xml
 
+notifications:
+     email:
+         recipients:
+             - vidyac.raghav@gmail.com
+             - exampletwo@org.com
+         on_success: change
+         on_failure: always
